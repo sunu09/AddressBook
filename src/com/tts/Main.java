@@ -1,4 +1,6 @@
 package com.tts;
+import java.util.*;
+import java.io.*;
 
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
@@ -17,22 +19,21 @@ public class Main {
         switch (choice) {
             case 1:
                 System.out.println("Please provide the following information to add an entry");
-                System.out.println("First Name");
+                System.out.print("First Name: ");
                 String firstName = input.next();
-                System.out.println("Last Name");
+                System.out.print("Last Name: ");
                 String lastName = input.next();
-                System.out.println("Phone Number");
+                System.out.print("Phone Number: ");
                 String phoneNumber = input.next();
-                System.out.println("Email Address");
+                System.out.print("Email Address: ");
                 String emailAddress = input.next();
-                System.out.println("Added the following new entry:");
+                System.out.print("Added the following new entry:");
                 AddressBook.addEntry(new Entry(firstName, lastName, phoneNumber, emailAddress));
                 break;
 
             case 2:
 
                 System.out.println("Enter the email address of person you wish to remove");
-
                 String emailAdd = input.next();
                 System.out.println("Deleted the following entry:");
                 //AddressBook.removeEntry(new Entry(fName, lName, phoneNum, emailAdd));
@@ -40,34 +41,30 @@ public class Main {
                 break;
 
             case 3:
-                System.out.println("Let's search by email address");
-                String email = input.next();
-                Optional<Entry> found = AddressBook.searchEntry(email);
-                //             AddressBook.searchEntry(new Entry(fName, lName, phoneNum, emailAdd));
-                System.out.println(found);
+                System.out.println("What do you like to search?");
+                System.out.println("1) First Name\n2) Last Name\n3) Phone Number\n4) Email Address");
+                System.out.print("Chose a search type: ");
+                String selection = input.next();
+                System.out.println("Enter your search: ");
+                String selectSearch = input.next();
+                Entry entry = AddressBook.searchEntry(selection, selectSearch);
+                System.out.println(entry);
                 break;
 
          case 4:
                 System.out.println("Print Address Book");
-                System.out.print(AddressBook.getEntryList());
-
+                System.out.println(AddressBook.getEntryList());
                 break;
 
             case 5:
-//                System.out.println("Are you sure you want to delete an entry?");
-//                System.out.println("Y/N: ");
-//                String decision = input.next();
-//
-//                if (decision=="y" || decision =="Y"){
-//                AddressBook.deleteEntryList();
-//                }
+                System.out.println("deleting entry");
                 AddressBook.deleteEntryList();
+                System.out.println("Address book cleared!\n");
                 break;
 
             case 6:
                 System.out.println("Quit");
                 System.exit(0);
-//                input.close();
                 break;
 
             default:

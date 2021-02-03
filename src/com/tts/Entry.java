@@ -1,5 +1,8 @@
 package com.tts;
 
+import java.io.*;
+import java.util.*;
+
 public class Entry {
 
     private String firstName;
@@ -51,13 +54,18 @@ public class Entry {
 
     @Override
     public String toString() {
-        return "Entry{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
+
+        return  "\n{" +
+                "\n***********"+
+                "\nfirstName='" + firstName + '\'' +
+                ",\nlastName='" + lastName + '\'' +
+                ",\nphoneNumber='" + phoneNumber + '\'' +
+                ",\nemailAddress='" + emailAddress + '\'' +
+                "\n***********"+
+                "\n}";
     }
 }
+
+
 
 
